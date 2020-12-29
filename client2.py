@@ -103,14 +103,12 @@ def recv_file(sock):
 
 
 def main():
-    # server_ip = input("请输入目标主机地址：")
-    # server_port = int(input("请输入目标主机端口："))
-    # sock_bind = (server_ip, server_port)
-    # sock = socket.socket()
-    # sock.connect(sock_bind)
-    os.chdir(r"C:\Users\zzy\Desktop\培训代码\网络通信\拷贝地址")        # 先进入所要接收文件夹的目录
+    server_ip = input("请输入目标主机地址：")
+    server_port = int(input("请输入目标主机端口："))
+    sock_bind = (server_ip, server_port)
     sock = socket.socket()
-    sock.connect(("127.0.0.1", 9999))
+    sock.connect(sock_bind)
+    os.chdir(r"C:\Download")        # 先进入所要接收文件夹的目录
     recv_file(sock)
     print("文件夹接收成功！")
     sock.close()
